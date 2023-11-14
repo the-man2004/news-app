@@ -24,15 +24,22 @@ const getDateString = () => {
 // fetchimg the data
 const fetchNews = async () => {
   // Date
-  const date = getDateString();
+  // const date = getDateString();
 
   // URL
+  // const url =
+  //   "https://newsapi.org/v2/everything?" +
+  //   "q=apple&" +
+  //   `from=${date}&` +
+  //   "pageSize=20&" +
+  //   "sortBy=popularity&" +
+  //   "apiKey=37d4f2f323884e05887061669ba9133c";
   const url =
-    "https://newsapi.org/v2/everything?" +
-    "q=apple&" +
-    `from=${date}&` +
+    "https://newsapi.org/v2/top-headlines?" +
+    "country=us&" +
+    "category=business&" +
     "pageSize=20&" +
-    "sortBy=popularity&" +
+    "page=2&" +
     "apiKey=37d4f2f323884e05887061669ba9133c";
   const response = await fetch(url);
 
