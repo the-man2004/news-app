@@ -37,7 +37,7 @@ const fetchNews = async () => {
   const url =
     "https://newsapi.org/v2/top-headlines?" +
     "country=us&" +
-    "category=business&" +
+    "category=technology&" +
     "pageSize=20&" +
     "page=2&" +
     "apiKey=37d4f2f323884e05887061669ba9133c";
