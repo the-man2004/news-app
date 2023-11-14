@@ -1,12 +1,6 @@
 <template>
-  <button @click="newsStore.fetchNews">FETCH NEWS</button>
+  <router-view></router-view>
 </template>
-
-<script setup>
-import { useNewsStore } from "./stores/useNewsStore.js";
-
-const newsStore = useNewsStore();
-</script>
 
 <style>
 #app {
