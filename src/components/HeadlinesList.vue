@@ -1,9 +1,10 @@
 <template>
   <div>
     <div class="max-w-6xl mx-auto px-8">
+      <first-headline />
       <ul>
-        <article-item
-          v-for="(article, index) in newsStore.otherArticles"
+        <headline-item
+          v-for="(article, index) in newsStore.otherHeadlines"
           :key="index"
           :article="article"
         />
@@ -13,7 +14,8 @@
 </template>
 
 <script setup>
-import ArticleItem from "./ArticleItem.vue";
+import FirstHeadline from "./FirstHeadline.vue";
+import HeadlineItem from "./HeadlineItem.vue";
 import { useNewsStore } from "../stores/useNewsStore";
 
 const newsStore = useNewsStore();

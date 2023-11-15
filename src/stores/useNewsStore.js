@@ -3,7 +3,8 @@ import { defineStore } from "pinia";
 export const useNewsStore = defineStore("useNewsStore", {
   state: () => ({
     isFetching: true,
-    firstArticle: null,
+    headlineArticle: null,
+    otherHeadlines: null,
     otherArticles: null,
   }),
   getters: {},
@@ -17,7 +18,7 @@ export const useNewsStore = defineStore("useNewsStore", {
           "https://newsapi.org/v2/top-headlines?" +
           "country=us&" +
           "category=technology&" +
-          "pageSize=26&" +
+          "pageSize=35&" +
           "apiKey=37d4f2f323884e05887061669ba9133c";
 
         const response = await fetch(url);
@@ -29,8 +30,9 @@ export const useNewsStore = defineStore("useNewsStore", {
         const responseData = await response.json();
         console.log(responseData);
 
-        this.firstArticle = responseData.articles[0];
-        this.otherArticles = responseData.articles.slice(1);
+        this.headlineArticle = responseData.articles[0];
+        this.otherHeadlines = responseData.articles.slice(1, 10);
+        this.otherArticles = responseData.articles.slice(10);
 
         this.isFetching = false;
       } catch (err) {
