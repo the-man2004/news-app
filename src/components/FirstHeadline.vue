@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-8 text-sm md:mb-12 md:text-lg">
+  <div class="mb-8 text-sm md:mb-16 md:text-lg">
     <a :href="link">
       <img :src="thumbnail" alt="" />
       <div>

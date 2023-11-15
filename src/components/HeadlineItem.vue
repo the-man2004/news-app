@@ -1,9 +1,12 @@
 <template>
   <li>
-    <img :src="thumbnail" alt="" />
-    <h1>{{ title }}</h1>
-    <span>{{ author }}</span>
-    <a :href="link">Read more</a>
+    <a :href="link">
+      <img :src="thumbnail" alt="Article thumbnail" />
+      <h1 class="mt-2 font-bold text-sm leading-5 sm:font-extrabold sm:text-md">
+        {{ title }}
+      </h1>
+      <p class="mt-2 font-bold text-xs sm:text-sm">{{ author }}</p>
+    </a>
   </li>
 </template>
 

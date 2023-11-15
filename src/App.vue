@@ -8,4 +8,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+img {
+  aspect-ratio: 16/9;
+}
 </style>
