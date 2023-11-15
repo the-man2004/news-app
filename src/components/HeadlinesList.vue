@@ -1,6 +1,13 @@
 <template>
-  <div>
+  <section>
     <div class="max-w-6xl mx-auto px-8">
+      <div
+        class="mt-10 mb-4 border-b-2 border-l-2 border-black md:mt-16 md:mb-8"
+      >
+        <h3 class="text-sm font-extrabold pl-2 md:text-lg md:pl-4 md:pb-1">
+          Tech Headlines
+        </h3>
+      </div>
       <first-headline />
       <ul>
         <headline-item
@@ -10,7 +17,7 @@
         />
       </ul>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup>
