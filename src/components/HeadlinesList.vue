@@ -9,7 +9,7 @@
         </h3>
       </div>
       <first-headline />
-      <ul class="mb-10 grid gap-4 grid-cols-2 md:grid-cols-3 md:gap-6 md:mb-16">
+      <ul class="mb-16 grid gap-4 grid-cols-2 md:grid-cols-3 md:gap-6 md:mb-24">
         <headline-item
           v-for="(article, index) in newsStore.otherHeadlines"
           :key="index"
