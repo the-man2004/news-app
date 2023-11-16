@@ -30,9 +30,18 @@ export const useNewsStore = defineStore("useNewsStore", {
         const responseData = await response.json();
         console.log(responseData);
 
-        this.headlineArticle = responseData.articles[0];
-        this.otherHeadlines = responseData.articles.slice(1, 10);
-        this.otherArticles = responseData.articles.slice(10);
+        const data = responseData.articles.filter(
+          (article) =>
+            article.author !== null &&
+            article.urlToImage !== null &&
+            article.description !== "[Removed]"
+        );
+
+        console.log(data);
+
+        this.headlineArticle = data[0];
+        this.otherHeadlines = data.slice(1, 10);
+        this.otherArticles = data.slice(10);
 
         this.isFetching = false;
       } catch (err) {
