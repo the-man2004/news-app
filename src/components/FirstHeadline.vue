@@ -8,7 +8,7 @@
         >
           {{ title }}
         </h1>
-        <p class="mt-2">{{ description }}</p>
+        <p class="mt-2 w-2/3 sm:w-1/2">{{ description }}</p>
         <p class="font-bold mt-2">{{ author }}</p>
       </div>
     </a>
