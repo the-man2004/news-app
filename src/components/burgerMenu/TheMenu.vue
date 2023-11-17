@@ -1,7 +1,7 @@
 <template>
   <div class="lg:hidden">
     <svg
-      @click="handleMenuClick"
+      @click="toggleMenu"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
@@ -19,15 +19,16 @@
       v-if="isMenuOpen"
       class="p-4 shadow-xl absolute top-8 left-0 right-0 gap-4 bg-white sm:p-8"
     >
-      <button>tech</button>
-      <button>health</button>
-      <button>sports</button>
-      <button>science</button>
-      <button>general</button>
-      <button>business</button>
-      <button>entertainment</button>
+      <button @click="handleBtnClick">tech</button>
+      <button @click="handleBtnClick">health</button>
+      <button @click="handleBtnClick">sports</button>
+      <button @click="handleBtnClick">science</button>
+      <button @click="handleBtnClick">general</button>
+      <button @click="handleBtnClick">business</button>
+      <button @click="handleBtnClick">entertainment</button>
       <router-link
         to="/about"
+        @click="toggleMenu"
         class="font-semibold my-auto px-4 border-2 border-black"
         >about</router-link
       >
@@ -40,8 +41,12 @@ import { ref } from "vue";
 
 const isMenuOpen = ref(false);
 
-const handleMenuClick = () => {
+const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
+};
+
+const handleBtnClick = () => {
+  toggleMenu();
 };
 </script>
 
