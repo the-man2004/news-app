@@ -7,13 +7,13 @@
     </div>
     <the-menu></the-menu>
     <div class="hidden lg:flex lg:gap-6">
-      <button>tech</button>
-      <button>health</button>
-      <button>sports</button>
-      <button>science</button>
-      <button>general</button>
-      <button>business</button>
-      <button>entertainment</button>
+      <button @click="handleBtnClick('technology')">tech</button>
+      <button @click="handleBtnClick('health')">health</button>
+      <button @click="handleBtnClick('sports')">sports</button>
+      <button @click="handleBtnClick('science')">science</button>
+      <button @click="handleBtnClick('general')">general</button>
+      <button @click="handleBtnClick('business')">business</button>
+      <button @click="handleBtnClick('entertainment')">entertainment</button>
       <router-link to="/search">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -41,6 +41,13 @@
 
 <script setup>
 import TheMenu from "../components/burgerMenu/TheMenu.vue";
+import { useNewsStore } from "../stores/useNewsStore";
+
+const newsStore = useNewsStore();
+
+const handleBtnClick = (category) => {
+  newsStore.changeCategory(category);
+};
 </script>
 
 <style scoped>

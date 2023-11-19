@@ -3,12 +3,19 @@ import { defineStore } from "pinia";
 export const useNewsStore = defineStore("useNewsStore", {
   state: () => ({
     isFetching: true,
+    category: "technology",
     headlineArticle: null,
     otherHeadlines: null,
     otherArticles: null,
   }),
   getters: {},
   actions: {
+    changeCategory(newCategory) {
+      this.category = newCategory;
+
+      // fetch new asticles
+      this.fetchNews();
+    },
     // fetchimg the data
     async fetchNews() {
       try {
@@ -17,7 +24,7 @@ export const useNewsStore = defineStore("useNewsStore", {
         const url =
           "https://newsapi.org/v2/top-headlines?" +
           "country=us&" +
-          "category=technology&" +
+          `category=${this.category}&` +
           "pageSize=35&" +
           "apiKey=37d4f2f323884e05887061669ba9133c";
 

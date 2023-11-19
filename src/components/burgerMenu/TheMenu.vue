@@ -21,7 +21,7 @@
     >
       <router-link to="/search">
         <svg
-          @click="handleBtnClick"
+          @click="toggleMenu"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
@@ -36,13 +36,13 @@
           />
         </svg>
       </router-link>
-      <button @click="handleBtnClick">tech</button>
-      <button @click="handleBtnClick">health</button>
-      <button @click="handleBtnClick">sports</button>
-      <button @click="handleBtnClick">science</button>
-      <button @click="handleBtnClick">general</button>
-      <button @click="handleBtnClick">business</button>
-      <button @click="handleBtnClick">entertainment</button>
+      <button @click="handleBtnClick('technology')">tech</button>
+      <button @click="handleBtnClick('health')">health</button>
+      <button @click="handleBtnClick('sports')">sports</button>
+      <button @click="handleBtnClick('science')">science</button>
+      <button @click="handleBtnClick('general')">general</button>
+      <button @click="handleBtnClick('business')">business</button>
+      <button @click="handleBtnClick('entertainment')">entertainment</button>
 
       <router-link
         to="/about"
@@ -56,6 +56,9 @@
 
 <script setup>
 import { ref } from "vue";
+import { useNewsStore } from "../../stores/useNewsStore";
+
+const newsStore = useNewsStore();
 
 const isMenuOpen = ref(false);
 
@@ -63,7 +66,8 @@ const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
 };
 
-const handleBtnClick = () => {
+const handleBtnClick = (category) => {
+  newsStore.changeCategory(category);
   toggleMenu();
 };
 </script>
