@@ -1,5 +1,6 @@
 <template>
   <nav
+    id="navbar"
     class="flex flex-row justify-between shadow-lg py-1 px-4 md:py-2 sm:px-8"
   >
     <div>
