@@ -1,7 +1,7 @@
 <template>
   <div class="bg-black text-white mt-12 mt:pt-20">
     <div
-      class="max-w-6xl mx-auto text-xs p-4 md:grid md:grid-cols-5 md:text-sm md:p-8"
+      class="max-w-6xl mx-auto text-xs p-4 md:grid md:grid-cols-4 md:text-sm md:p-8"
     >
       <div class="mb-8 text-center md:mb-0 md:col-span-2 md:text-left">
         <router-link to="/technology" class="block text-lg font-bold"
