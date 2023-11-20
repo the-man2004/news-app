@@ -7,13 +7,13 @@
     </div>
     <the-menu></the-menu>
     <div class="hidden lg:flex lg:gap-6">
-      <router-link to="/technology">tech</router-link>
-      <router-link to="/health">health</router-link>
-      <router-link to="/sports">sports</router-link>
-      <router-link to="/science">science</router-link>
-      <router-link to="/general">general</router-link>
-      <router-link to="/business">business</router-link>
-      <router-link to="/entertainment">entertainment</router-link>
+      <router-link to="/technology" class="link">tech</router-link>
+      <router-link to="/health" class="link">health</router-link>
+      <router-link to="/sports" class="link">sports</router-link>
+      <router-link to="/science" class="link">science</router-link>
+      <router-link to="/general" class="link">general</router-link>
+      <router-link to="/business" class="link">business</router-link>
+      <router-link to="/entertainment" class="link">entertainment</router-link>
       <router-link to="/search">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +44,7 @@ import TheMenu from "../components/burgerMenu/TheMenu.vue";
 </script>
 
 <style scoped>
-a:hover {
+.link:hover {
   text-decoration: underline;
 }
 </style>

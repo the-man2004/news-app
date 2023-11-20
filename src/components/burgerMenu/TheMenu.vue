@@ -36,13 +36,25 @@
           />
         </svg>
       </router-link>
-      <router-link to="/technology" @click="toggleMenu()">tech</router-link>
-      <router-link to="/health" @click="toggleMenu()">health</router-link>
-      <router-link to="/sports" @click="toggleMenu()">sports</router-link>
-      <router-link to="/science" @click="toggleMenu()">science</router-link>
-      <router-link to="/general" @click="toggleMenu()">general</router-link>
-      <router-link to="/business" @click="toggleMenu()">business</router-link>
-      <router-link to="/entertainment" @click="toggleMenu()"
+      <router-link to="/technology" @click="toggleMenu()" class="link"
+        >tech</router-link
+      >
+      <router-link to="/health" @click="toggleMenu()" class="link"
+        >health</router-link
+      >
+      <router-link to="/sports" @click="toggleMenu()" class="link"
+        >sports</router-link
+      >
+      <router-link to="/science" @click="toggleMenu()" class="link"
+        >science</router-link
+      >
+      <router-link to="/general" @click="toggleMenu()" class="link"
+        >general</router-link
+      >
+      <router-link to="/business" @click="toggleMenu()" class="link"
+        >business</router-link
+      >
+      <router-link to="/entertainment" @click="toggleMenu()" class="link"
         >entertainment</router-link
       >
       <router-link
@@ -71,7 +83,7 @@ button {
   padding-bottom: 10px;
 }
 
-a:hover {
+.link:hover {
   text-decoration: underline;
 }
 </style>
