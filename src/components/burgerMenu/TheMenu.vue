@@ -57,9 +57,6 @@
 
 <script setup>
 import { ref } from "vue";
-import { useNewsStore } from "../../stores/useNewsStore";
-
-const newsStore = useNewsStore();
 
 const isMenuOpen = ref(false);
 
@@ -74,7 +71,7 @@ button {
   padding-bottom: 10px;
 }
 
-button:hover {
+a:hover {
   text-decoration: underline;
 }
 </style>

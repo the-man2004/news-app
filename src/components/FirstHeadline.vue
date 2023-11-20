@@ -1,7 +1,7 @@
 <template>
   <div class="mb-8 text-sm md:mb-16 md:text-lg">
     <a :href="link">
-      <img :src="thumbnail" alt="" />
+      <img :src="thumbnail" class="w-full" />
       <div>
         <h1
           class="leading-5 font-extrabold text-lg mt-2 sm:text-2xl md:text-4xl"

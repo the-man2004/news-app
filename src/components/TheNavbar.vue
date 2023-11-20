@@ -41,17 +41,10 @@
 
 <script setup>
 import TheMenu from "../components/burgerMenu/TheMenu.vue";
-import { useNewsStore } from "../stores/useNewsStore";
-
-const newsStore = useNewsStore();
-
-const handleBtnClick = (category) => {
-  newsStore.changeCategory(category);
-};
 </script>
 
 <style scoped>
-button:hover {
+a:hover {
   text-decoration: underline;
 }
 </style>
