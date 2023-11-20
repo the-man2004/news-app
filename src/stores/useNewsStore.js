@@ -8,7 +8,13 @@ export const useNewsStore = defineStore("useNewsStore", {
     otherHeadlines: null,
     otherArticles: null,
   }),
-  getters: {},
+  getters: {
+    currentCategory: (state) => {
+      const str = state.category;
+
+      return str.charAt(0).toUpperCase() + str.slice(1);
+    },
+  },
   actions: {
     changeCategory(newCategory) {
       this.category = newCategory;

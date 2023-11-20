@@ -5,7 +5,7 @@
         class="mt-10 mb-4 border-b-2 border-l-2 border-black md:mt-16 md:mb-8"
       >
         <h3 class="text-sm font-extrabold pl-2 md:text-lg md:pl-4 md:pb-1">
-          Tech Headlines
+          {{ newsStore.currentCategory }} Headlines
         </h3>
       </div>
       <first-headline />
