@@ -17,7 +17,7 @@
     </svg>
     <div
       v-if="isMenuOpen"
-      class="p-4 shadow-xl absolute top-8 left-0 right-0 gap-4 bg-white sm:p-8"
+      class="p-4 shadow-xl absolute top-8 left-0 right-0 gap-4 flex flex-col bg-white sm:p-8"
     >
       <router-link to="/search">
         <svg
@@ -36,18 +36,19 @@
           />
         </svg>
       </router-link>
-      <button @click="handleBtnClick('technology')">tech</button>
-      <button @click="handleBtnClick('health')">health</button>
-      <button @click="handleBtnClick('sports')">sports</button>
-      <button @click="handleBtnClick('science')">science</button>
-      <button @click="handleBtnClick('general')">general</button>
-      <button @click="handleBtnClick('business')">business</button>
-      <button @click="handleBtnClick('entertainment')">entertainment</button>
-
+      <router-link to="/technology" @click="toggleMenu()">tech</router-link>
+      <router-link to="/health" @click="toggleMenu()">health</router-link>
+      <router-link to="/sports" @click="toggleMenu()">sports</router-link>
+      <router-link to="/science" @click="toggleMenu()">science</router-link>
+      <router-link to="/general" @click="toggleMenu()">general</router-link>
+      <router-link to="/business" @click="toggleMenu()">business</router-link>
+      <router-link to="/entertainment" @click="toggleMenu()"
+        >entertainment</router-link
+      >
       <router-link
         to="/about"
         @click="toggleMenu"
-        class="font-semibold my-auto px-4 border-2 border-black"
+        class="font-semibold w-fit my-auto px-4 border-2 border-black"
         >about</router-link
       >
     </div>
@@ -64,11 +65,6 @@ const isMenuOpen = ref(false);
 
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
-};
-
-const handleBtnClick = (category) => {
-  newsStore.changeCategory(category);
-  toggleMenu();
 };
 </script>
 

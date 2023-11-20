@@ -7,13 +7,13 @@
     </div>
     <the-menu></the-menu>
     <div class="hidden lg:flex lg:gap-6">
-      <button @click="handleBtnClick('technology')">tech</button>
-      <button @click="handleBtnClick('health')">health</button>
-      <button @click="handleBtnClick('sports')">sports</button>
-      <button @click="handleBtnClick('science')">science</button>
-      <button @click="handleBtnClick('general')">general</button>
-      <button @click="handleBtnClick('business')">business</button>
-      <button @click="handleBtnClick('entertainment')">entertainment</button>
+      <router-link to="/technology">tech</router-link>
+      <router-link to="/health">health</router-link>
+      <router-link to="/sports">sports</router-link>
+      <router-link to="/science">science</router-link>
+      <router-link to="/general">general</router-link>
+      <router-link to="/business">business</router-link>
+      <router-link to="/entertainment">entertainment</router-link>
       <router-link to="/search">
         <svg
           xmlns="http://www.w3.org/2000/svg"
