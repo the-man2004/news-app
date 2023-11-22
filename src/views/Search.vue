@@ -49,12 +49,28 @@
           </div>
         </div>
       </div>
+
+      <!-- Results section -->
+      <div class="mt-16">
+        <ul class="grid gap-4 md:gap-8">
+          <search-item
+            v-for="(article, index) in newsStore.searchResults"
+            :key="index"
+            :article="article"
+            :category="category"
+          ></search-item>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
+import { useNewsStore } from "@/stores/useNewsStore";
+import SearchItem from "../components/search/SearchItem.vue";
+
+const newsStore = useNewsStore();
 
 const category = ref("technology");
 const isDropdownOpen = ref(false);
@@ -71,6 +87,10 @@ const handleCategoryChange = (e) => {
     toggleDropdown();
   }
 };
+
+onMounted(() => {
+  newsStore.searchNews("apple", category.value);
+});
 </script>
 
 <style scoped>

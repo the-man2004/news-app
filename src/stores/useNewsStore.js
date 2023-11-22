@@ -7,6 +7,7 @@ export const useNewsStore = defineStore("useNewsStore", {
     headlineArticle: null,
     otherHeadlines: null,
     otherArticles: null,
+    searchResults: null,
   }),
   getters: {
     currentCategory: (state) => {
@@ -55,6 +56,38 @@ export const useNewsStore = defineStore("useNewsStore", {
         this.headlineArticle = data[0];
         this.otherHeadlines = data.slice(1, 10);
         this.otherArticles = data.slice(10);
+        this.searchResults = data;
+
+        this.isFetching = false;
+      } catch (err) {
+        console.warn(err);
+
+        this.isFetching = false;
+      }
+    },
+    // Search for articles
+    async searchNews(searchQuery, category) {
+      try {
+        this.isFetching = true;
+
+        const url =
+          "https://newsapi.org/v2/top-headlines?" +
+          `q=${searchQuery}&` +
+          "country=us&" +
+          `category=${category}&` +
+          "pageSize=35&" +
+          "apiKey=37d4f2f323884e05887061669ba9133c";
+
+        const response = await fetch(url);
+
+        if (!response.ok) {
+          throw new Error("Something went wrong!");
+        }
+
+        const responseData = await response.json();
+        console.log(responseData);
+
+        this.searchResults = responseData.articles;
 
         this.isFetching = false;
       } catch (err) {
