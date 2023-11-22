@@ -50,8 +50,13 @@
         </div>
       </div>
 
+      <!-- Divider -->
+      <div class="mt-8 border-b-2 border-black md:mt-12">
+        <h3 class="mb-1">Results ({{ newsStore.searchResults.length }})</h3>
+      </div>
+
       <!-- Results section -->
-      <div class="mt-16">
+      <div class="mt-4 md:mt-8">
         <ul class="grid gap-4 md:gap-8">
           <search-item
             v-for="(article, index) in newsStore.searchResults"

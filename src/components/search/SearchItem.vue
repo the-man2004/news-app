@@ -14,8 +14,6 @@ import { computed } from "vue";
 
 const props = defineProps(["article", "category"]);
 
-console.log(props.category);
-
 const img = computed(() => props.article.urlToImage);
 const title = computed(() => props.article.title);
 const author = computed(() => props.article.author);
