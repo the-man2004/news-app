@@ -7,11 +7,15 @@
         </h2>
       </div>
       <div class="max-w-3xl mx-auto">
-        <form class="text-sm grid grid-cols-4 border-2 border-black">
+        <form
+          @submit.prevent="handleFormSubmit"
+          class="text-sm grid grid-cols-4 border-2 border-black"
+        >
           <div class="col-span-3 flex">
             <i class="fa-solid fa-magnifying-glass my-auto p-2 md:p-4"></i>
             <input
               type="text"
+              v-model="searchQuery"
               placeholder='Try "Apple"'
               class="w-full h-full outline-none"
             />
@@ -39,20 +43,18 @@
             @click="handleCategoryChange"
             class="absolute w-full py-1 px-2 bg-white border-x-2 border-b-2 border-black md:py-2 md:px-4"
           >
-            <button>technology</button>
-            <button>health</button>
-            <button>sports</button>
-            <button>science</button>
-            <button>general</button>
-            <button>business</button>
-            <button>entertainment</button>
+            <button>popularity</button>
+            <button>relevancy</button>
+            <button>publishedAt</button>
           </div>
         </div>
       </div>
 
       <!-- Divider -->
       <div class="mt-8 border-b-2 border-black md:mt-12">
-        <!-- <h3 class="mb-1">Results ({{ newsStore.searchResults.length }})</h3> -->
+        <h3 v-if="searchQuery !== ''" class="font-semibold">
+          Results for "{{ searchQuery }}"
+        </h3>
       </div>
 
       <!-- Results section -->
@@ -77,8 +79,18 @@ import SearchItem from "../components/search/SearchItem.vue";
 
 const newsStore = useNewsStore();
 
-const category = ref("technology");
+const searchQuery = ref("");
+const category = ref("popularuty");
 const isDropdownOpen = ref(false);
+
+const handleFormSubmit = () => {
+  if (searchQuery.value !== "") {
+    console.log(searchQuery.value.toLowerCase());
+
+    // Searching
+    newsStore.searchNews(searchQuery.value, category.value);
+  }
+};
 
 const toggleDropdown = () => {
   isDropdownOpen.value = !isDropdownOpen.value;
@@ -90,6 +102,7 @@ const handleCategoryChange = (e) => {
     category.value = e.target.innerText;
 
     toggleDropdown();
+    handleFormSubmit();
   }
 };
 

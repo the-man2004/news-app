@@ -66,16 +66,16 @@ export const useNewsStore = defineStore("useNewsStore", {
       }
     },
     // Search for articles
-    async searchNews(searchQuery, category) {
+    async searchNews(searchQuery, sortBy) {
       try {
         this.isFetching = true;
 
         const url =
-          "https://newsapi.org/v2/top-headlines?" +
+          "https://newsapi.org/v2/everything?" +
           `q=${searchQuery}&` +
-          "country=us&" +
-          `category=${category}&` +
-          "pageSize=35&" +
+          `sortBy=${sortBy}&` +
+          "language=en&" +
+          "pageSize=50&" +
           "apiKey=37d4f2f323884e05887061669ba9133c";
 
         const response = await fetch(url);
@@ -87,7 +87,14 @@ export const useNewsStore = defineStore("useNewsStore", {
         const responseData = await response.json();
         console.log(responseData);
 
-        this.searchResults = responseData.articles;
+        const data = responseData.articles.filter(
+          (article) =>
+            article.author !== null &&
+            article.urlToImage !== null &&
+            article.description !== "[Removed]"
+        );
+
+        this.searchResults = data;
 
         this.isFetching = false;
       } catch (err) {
