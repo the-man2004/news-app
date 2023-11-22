@@ -19,6 +19,63 @@
           <button class="w-full bg-black text-white">SEARCH</button>
         </form>
       </div>
+      <div
+        class="max-w-3xl mx-auto text-xs grid grid-cols-8 sm:grid-cols-4 mt-8 md:mt-12 md:text-sm"
+      >
+        <div class="col-span-5 sm:col-span-3">
+          <h3>From 88,000+ resources</h3>
+        </div>
+        <div class="col-span-3 sm:col-span-1">
+          <div class="border-2 border-black flex py-1 px-2 md:py-2 md:px-4">
+            <button @click="toggleDropdown" class="w-full text-left">
+              {{ category }}
+            </button>
+            <button @click="toggleDropdown">
+              <i class="fa-solid fa-angle-down"></i>
+            </button>
+          </div>
+          <div
+            v-if="isDropdownOpen === true"
+            @click="handleCategoryChange"
+            class="py-1 px-2 border-x-2 border-b-2 border-black md:py-2 md:px-4"
+          >
+            <button>technology</button>
+            <button>health</button>
+            <button>sports</button>
+            <button>science</button>
+            <button>general</button>
+            <button>business</button>
+            <button>entertainment</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
+
+<script setup>
+import { ref } from "vue";
+
+const category = ref("technology");
+const isDropdownOpen = ref(false);
+
+const toggleDropdown = () => {
+  isDropdownOpen.value = !isDropdownOpen.value;
+};
+
+const handleCategoryChange = (e) => {
+  if (e.target.tagName === "BUTTON") {
+    console.log(e.target.innerText);
+    category.value = e.target.innerText;
+
+    toggleDropdown();
+  }
+};
+</script>
+
+<style scoped>
+button {
+  display: block;
+  padding: 1px 0 1px 0;
+}
+</style>
