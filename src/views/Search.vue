@@ -52,7 +52,7 @@
 
       <!-- Divider -->
       <div class="mt-8 border-b-2 border-black md:mt-12">
-        <h3 class="mb-1">Results ({{ newsStore.searchResults.length }})</h3>
+        <!-- <h3 class="mb-1">Results ({{ newsStore.searchResults.length }})</h3> -->
       </div>
 
       <!-- Results section -->
