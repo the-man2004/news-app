@@ -1,6 +1,6 @@
 <template>
-  <div class="min-h-screen flex flex-col items-center justify-center">
-    <span class="loader"></span>
+  <div class="min-h-screen flex flex-col items-center">
+    <span class="loader mt-16 md:mt-24"></span>
     <h2 class="mt-2 font-semibold">Loading...</h2>
   </div>
 </template>

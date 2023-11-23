@@ -58,7 +58,7 @@
       </div>
 
       <!-- Results section -->
-      <div class="mt-4 md:mt-8">
+      <div v-if="newsStore.isFetching === false" class="mt-4 md:mt-8">
         <ul class="grid gap-4 md:gap-8">
           <search-item
             v-for="(article, index) in newsStore.searchResults"
@@ -68,6 +68,7 @@
           ></search-item>
         </ul>
       </div>
+      <loading-spinner v-else />
     </div>
   </div>
 </template>
@@ -76,6 +77,7 @@
 import { onMounted, ref } from "vue";
 import { useNewsStore } from "@/stores/useNewsStore";
 import SearchItem from "../components/search/SearchItem.vue";
+import LoadingSpinner from "../components/Spinner/LoadingSpinner.vue";
 
 const newsStore = useNewsStore();
 
@@ -107,7 +109,9 @@ const handleCategoryChange = (e) => {
 };
 
 onMounted(() => {
-  newsStore.searchNews("apple", category.value);
+  if (newsStore.searchResults === null) {
+    newsStore.searchNews("apple", category.value);
+  }
 });
 </script>
 
