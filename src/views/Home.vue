@@ -4,12 +4,14 @@
     <headlines-list />
     <article-list />
   </div>
+  <loading-spinner v-else />
 </template>
 
 <script setup>
 import { useNewsStore } from "../stores/useNewsStore.js";
 import HeadlinesList from "../components/HeadlinesList.vue";
 import ArticleList from "../components/ArticleList.vue";
+import LoadingSpinner from "../components/Spinner/LoadingSpinner.vue";
 import { onMounted, watch } from "vue";
 import { useRoute } from "vue-router";
 
