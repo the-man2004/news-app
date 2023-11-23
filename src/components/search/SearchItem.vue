@@ -3,8 +3,7 @@
     <a :href="url" class="grid grid-cols-3 gap-2 md:gap-4">
       <img :src="img" alt="" />
       <div class="col-span-2 text-xs">
-        <span class="">{{ props.category }}</span>
-        <h2 class="mt-1 mb-3 font-bold text-sm sm:text-lg lg:text-2xl">
+        <h2 class="mb-2 font-bold text-sm sm:text-lg lg:text-2xl">
           {{ title }}
         </h2>
         <p class="font-semibold">{{ author }}</p>
