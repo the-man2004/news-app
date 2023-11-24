@@ -58,10 +58,10 @@
         >entertainment</router-link
       >
       <router-link
-        to="/about"
+        to="/contact"
         @click="toggleMenu"
         class="font-semibold w-fit my-auto px-4 border-2 border-black"
-        >about</router-link
+        >contact</router-link
       >
     </div>
   </nav>

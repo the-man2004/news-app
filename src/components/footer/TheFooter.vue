@@ -4,15 +4,16 @@
       class="max-w-6xl mx-auto text-xs p-4 md:grid md:grid-cols-5 md:text-sm md:p-8"
     >
       <div class="mb-8 text-center md:mb-0 md:col-span-3 md:text-left">
-        <router-link to="/technology" class="block text-lg font-bold"
+        <router-link to="/technology" class="block mb-4 text-lg font-bold"
           >Daily News</router-link
         >
-        <button class="mt-2 py-2 px-4 border">CONTACT US</button>
+        <router-link to="/contact" class="py-2 px-4 border"
+          >CONTACT US</router-link
+        >
       </div>
       <div class="grid grid-cols-2 md:col-span-2">
         <div class="flex flex-col gap-1 md:pl-4 md:gap-4 md:border-l-2">
           <router-link to="/search">SEARCH</router-link>
-          <router-link to="/about">ABOUT</router-link>
           <router-link to="/technology">TECHNOLOGY</router-link>
           <router-link to="/business">BUSINESS</router-link>
           <router-link to="/science">SCIENCE</router-link>

@@ -32,9 +32,9 @@
         </svg>
       </router-link>
       <router-link
-        to="/about"
+        to="/contact"
         class="font-semibold my-auto px-4 border-2 border-black"
-        >about</router-link
+        >contact</router-link
       >
     </div>
   </nav>
