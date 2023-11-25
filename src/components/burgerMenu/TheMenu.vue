@@ -17,7 +17,7 @@
     </svg>
     <div
       v-if="isMenuOpen"
-      class="p-4 shadow-xl absolute top-8 left-0 right-0 gap-4 flex flex-col bg-white sm:p-8"
+      class="z-20 p-4 shadow-xl absolute top-8 left-0 right-0 gap-4 flex flex-col bg-white sm:p-8"
     >
       <router-link to="/search">
         <svg
