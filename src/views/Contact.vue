@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen m-8 p-4 md:p-8 md:m-16">
+  <div class="min-h-screen m-4 p-4 md:p-8 md:m-16">
     <div class="max-w-4xl w-full mx-auto border-2 border-black">
       <h1
         class="my-8 text-3xl text-center font-bold sm:text-5xl md:my-16 lg:text-7xl"
@@ -87,37 +87,40 @@ const isMessageValid = ref(true);
 const checkName = () => {
   if (name.value === "") {
     isNameValid.value = false;
+    isFormValid.value = false;
   } else {
     isNameValid.value = true;
+    isFormValid.value = true;
   }
 };
 const checkEmail = () => {
   if (!email.value.includes("@")) {
     isEmailValid.value = false;
+    isFormValid.value = false;
   } else {
     isEmailValid.value = true;
+    isFormValid.value = true;
   }
 };
 const checkMessage = () => {
   if (message.value === "") {
     isMessageValid.value = false;
+    isFormValid.value = false;
   } else {
     isMessageValid.value = true;
+    isFormValid.value = true;
   }
 };
 
 const handleFormSubmission = () => {
-  if (name.value === "") {
-    isNameValid.value = false;
-    isFormValid.value = false;
-  }
-  if (!email.value.includes("@")) {
-    isEmailValid.value = false;
-    isFormValid.value = false;
-  }
-  if (message.value === "") {
-    isMessageValid.value = false;
-    isFormValid.value = false;
+  // Check if inputs are valid
+  checkName();
+  checkEmail();
+  checkMessage();
+
+  // Check if form is valid
+  if (isFormValid.value === true) {
+    console.log("FORM IS VALID");
   }
 };
 </script>
