@@ -1,4 +1,5 @@
 <template>
+  <contact-modal />
   <div class="min-h-screen m-4 p-4 md:p-8 md:m-16">
     <div class="max-w-4xl w-full mx-auto border-2 border-black">
       <h1
@@ -71,6 +72,7 @@
 </template>
 
 <script setup>
+import ContactModal from "../components/contact/ContactModal.vue";
 import { ref } from "vue";
 
 const name = ref("");
