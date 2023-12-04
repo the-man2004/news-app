@@ -1,8 +1,8 @@
 <template>
-  <div class="min-h-screen m-4 p-4 md:p-8 md:m-8">
+  <div class="min-h-screen m-8 p-4 md:p-8 md:m-16">
     <div class="max-w-4xl w-full mx-auto border-2 border-black">
       <h1
-        class="my-4 text-3xl text-center font-bold sm:text-5xl md:my-8 lg:text-7xl"
+        class="my-8 text-3xl text-center font-bold sm:text-5xl md:my-16 lg:text-7xl"
       >
         Contact Us
       </h1>
@@ -16,19 +16,25 @@
         class="text-sm max-w-2xl mx-auto p-4 md:text-lg md:p-8"
       >
         <div class="flex flex-col mb-2 md:mb-4">
-          <label for="name" class="font-semibold">Name</label>
+          <label for="name" class="font-semibold">Full Name</label>
+          <span v-if="!isNameValid" class="mt-2 text-red-500 font-semibold"
+            >⚠️Please enter your full name!</span
+          >
           <input
             v-model="name"
             @input="checkName"
             id="name"
             :class="{ invalid: !isNameValid }"
             class="border-b-2 border-black py-1 outline-none md:py-2"
-            placeholder="Enter your name"
+            placeholder="Enter your full name"
             type="text"
           />
         </div>
         <div class="flex flex-col mb-2 md:mb-4">
           <label for="email" class="font-semibold">E-mail</label>
+          <span v-if="!isEmailValid" class="mt-2 text-red-500 font-semibold"
+            >⚠️Please enter your E-mail address!</span
+          >
           <input
             v-model="email"
             @input="checkEmail"
@@ -41,6 +47,9 @@
         </div>
         <div class="flex flex-col mb-2 md:mb-4">
           <label for="message" class="font-semibold">Message</label>
+          <span v-if="!isMessageValid" class="mt-2 text-red-500 font-semibold"
+            >⚠️Please add a message!</span
+          >
           <textarea
             v-model="message"
             @input="checkMessage"
