@@ -1,5 +1,5 @@
 <template>
-  <contact-modal />
+  <contact-modal v-if="isModalOpen" />
   <div class="min-h-screen m-4 p-4 md:p-8 md:m-16">
     <div class="max-w-4xl w-full mx-auto border-2 border-black">
       <h1
@@ -75,6 +75,8 @@
 import ContactModal from "../components/contact/ContactModal.vue";
 import { ref } from "vue";
 
+const isModalOpen = ref(false);
+
 const name = ref("");
 const email = ref("");
 const message = ref("");
@@ -84,6 +86,11 @@ const isFormValid = ref(true);
 const isNameValid = ref(true);
 const isEmailValid = ref(true);
 const isMessageValid = ref(true);
+
+// Modal function
+const toggleModal = () => {
+  isModalOpen.value = !isModalOpen.value;
+};
 
 // Functions to check validity
 const checkName = () => {
@@ -123,6 +130,8 @@ const handleFormSubmission = () => {
   // Check if form is valid
   if (isFormValid.value === true) {
     console.log("FORM IS VALID");
+
+    toggleModal();
   }
 };
 </script>
