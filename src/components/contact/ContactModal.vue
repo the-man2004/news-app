@@ -8,7 +8,7 @@
     >
       <div v-if="isLoading" class="flex flex-col items-center">
         <span class="loader my-auto"></span>
-        <h2 class="mt-2 font-semibold">Loading...</h2>
+        <h2 class="mt-2 font-semibold">Sending...</h2>
       </div>
       <div v-else>
         <h2 class="text-md font-semibold text-center sm:text-2xl lg:text-3xl">
