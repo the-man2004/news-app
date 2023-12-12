@@ -3,6 +3,7 @@ import { defineStore } from "pinia";
 export const useNewsStore = defineStore("useNewsStore", {
   state: () => ({
     isFetching: true,
+    error: null,
     category: "technology",
     headlineArticle: null,
     otherHeadlines: null,
@@ -27,6 +28,7 @@ export const useNewsStore = defineStore("useNewsStore", {
     async fetchNews() {
       try {
         this.isFetching = true;
+        this.error = null;
 
         const url =
           "https://newsapi.org/v2/top-headlines?" +
@@ -36,6 +38,8 @@ export const useNewsStore = defineStore("useNewsStore", {
           "apiKey=37d4f2f323884e05887061669ba9133c";
 
         const response = await fetch(url);
+
+        console.warn(response);
 
         if (!response.ok) {
           throw new Error("Something went wrong!");
@@ -63,6 +67,7 @@ export const useNewsStore = defineStore("useNewsStore", {
         console.warn(err);
 
         this.isFetching = false;
+        this.error = true;
       }
     },
     // Search for articles
@@ -97,10 +102,12 @@ export const useNewsStore = defineStore("useNewsStore", {
         this.searchResults = data;
 
         this.isFetching = false;
+        this.error = null;
       } catch (err) {
         console.warn(err);
 
         this.isFetching = false;
+        this.error = true;
       }
     },
   },
