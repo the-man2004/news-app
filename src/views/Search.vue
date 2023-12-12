@@ -58,7 +58,10 @@
       </div>
 
       <!-- Results section -->
-      <div v-if="newsStore.isFetching === false" class="mt-4 md:mt-8">
+      <div
+        v-if="newsStore.isFetching === false && newsStore.error === null"
+        class="mt-4 md:mt-8"
+      >
         <ul class="grid gap-4 md:gap-8">
           <search-item
             v-for="(article, index) in newsStore.searchResults"
@@ -68,7 +71,10 @@
           ></search-item>
         </ul>
       </div>
-      <loading-spinner v-else />
+      <loading-spinner
+        v-else-if="newsStore.isFetching === true && newsStore.error === null"
+      />
+      <error v-if="newsStore.error === true" :retryFunc="handleFormSubmit" />
     </div>
   </div>
 </template>
@@ -78,6 +84,7 @@ import { onMounted, ref } from "vue";
 import { useNewsStore } from "@/stores/useNewsStore";
 import SearchItem from "../components/search/SearchItem.vue";
 import LoadingSpinner from "../components/Spinner/LoadingSpinner.vue";
+import Error from "../components/error/Error.vue";
 
 const newsStore = useNewsStore();
 

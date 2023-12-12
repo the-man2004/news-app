@@ -7,7 +7,7 @@
   <loading-spinner
     v-else-if="newsStore.isFetching === true && newsStore.error === null"
   />
-  <error v-if="newsStore.error === true" />
+  <error v-if="newsStore.error === true" :retryFunc="newsStore.fetchNews" />
 </template>
 
 <script setup>

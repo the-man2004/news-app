@@ -74,6 +74,7 @@ export const useNewsStore = defineStore("useNewsStore", {
     async searchNews(searchQuery, sortBy) {
       try {
         this.isFetching = true;
+        this.error = null;
 
         const url =
           "https://newsapi.org/v2/everything?" +
@@ -102,7 +103,6 @@ export const useNewsStore = defineStore("useNewsStore", {
         this.searchResults = data;
 
         this.isFetching = false;
-        this.error = null;
       } catch (err) {
         console.warn(err);
 

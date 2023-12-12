@@ -5,7 +5,7 @@
         Something went wrong! Please try again later.
       </h1>
       <button
-        @click="newsStore.fetchNews"
+        @click="props.retryFunc"
         class="block mt-4 mx-auto py-2 px-10 bg-black text-white"
       >
         Retry
@@ -18,6 +18,8 @@
 import { useNewsStore } from "../../stores/useNewsStore";
 
 const newsStore = useNewsStore();
+
+const props = defineProps(["retryFunc"]);
 </script>
 
 <style scoped>
