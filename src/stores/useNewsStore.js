@@ -8,7 +8,7 @@ export const useNewsStore = defineStore("useNewsStore", {
     headlineArticle: null,
     otherHeadlines: null,
     otherArticles: null,
-    searchResults: null,
+    searchResults: [],
   }),
   getters: {
     currentCategory: (state) => {

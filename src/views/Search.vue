@@ -75,6 +75,13 @@
         v-else-if="newsStore.isFetching === true && newsStore.error === null"
       />
       <error v-if="newsStore.error === true" :retryFunc="handleFormSubmit" />
+      <div
+        v-if="newsStore.error !== true && newsStore.searchResults.length <= 0"
+      >
+        <h2 class="font-bold text-center text-xl mt-3 md:text-3xl">
+          No results found for "{{ searchQuery }}"
+        </h2>
+      </div>
     </div>
   </div>
 </template>
@@ -116,7 +123,7 @@ const handleCategoryChange = (e) => {
 };
 
 onMounted(() => {
-  if (newsStore.searchResults === null) {
+  if (newsStore.searchResults.length <= 0) {
     newsStore.searchNews("apple", category.value);
   }
 });
